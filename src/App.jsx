@@ -1,9 +1,62 @@
 // src/App.jsx
-
-export default function App () {
+import WeatherForecast from "./components/WeatherForcast/WeatherForcast.jsx"
+import './App.css'
+export default function App() {
+  const weatherForecasts = [
+    {
+      day: 'Mon',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/day.svg',
+      imgAlt: 'sun icon',
+      conditions: 'Sunny',
+      time: 'Morning',
+    },
+    {
+      day: 'Tue',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/night.svg',
+      imgAlt: 'moon icon',
+      conditions: 'Clear',
+      time: 'Night',
+    },
+    {
+      day: 'Wed',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/stormy.svg',
+      imgAlt: 'clouds with lightning icon',
+      conditions: 'Stormy',
+      time: 'All Day',
+    },
+    {
+      day: 'Thu',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/cloudy-day_t7ckxp.svg',
+      imgAlt: 'sun overcast by clouds icon',
+      conditions: 'Overcast',
+      time: 'Evening',
+    },
+    {
+      day: 'Fri',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/cloudy-night.svg',
+      imgAlt: 'moon overcast by clouds icon',
+      conditions: 'Cloudy',
+      time: 'Night',
+    },
+  ];
 
   return (
-    <h1>Hello world!</h1>
+    <>
+      <div className="weatherForecast">
+        <h1>Local Weather</h1>
+        <section>
+          {weatherForecasts.map((forecast, index) => (
+            <WeatherForecast
+              key={index}
+              weatherForecast={forecast}
+
+            />
+          ))}
+        </section>
+      </div>
+
+    </>
+
   );
 }
 
